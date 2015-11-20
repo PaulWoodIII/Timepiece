@@ -220,4 +220,19 @@ class NSDateTestCase: XCTestCase {
         let timestamp = birthday.stringFromFormat("yyyy-MM-dd HH:mm:SS")
         XCTAssertEqual(timestamp, "1987-06-02 00:00:00", "")
     }
+    
+    func testStringFromISO8801Format() {
+        let timestamp = birthday.stringFromFormat("yyyy-MM-dd'T'HH:mm:ss.sssZZ")
+        XCTAssertEqual(timestamp, "1987-06-02T00:00:00.000-0400", "")
+    }
+    
+    func testDateFromISO8801FormattedString() {
+        let date = "1987-06-02T00:00:00.000-0400".dateFromFormat("yyyy-MM-dd'T'HH:mm:ss.sssZZ")
+        XCTAssertEqual(date, birthday, "")
+    }
+    
+    func testDateFromISO8801FullFormattedString() {
+        let date = "2015-10-12T01:58:18.877Z".dateFromFormat("yyyy-MM-dd'T'HH:mm:ss.sssZZ")
+        XCTAssertNotNil(date,"")
+    }
 }

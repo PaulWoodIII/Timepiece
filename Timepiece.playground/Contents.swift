@@ -40,3 +40,9 @@ dateInCST.timeZone
 firstCommitDate < 1.year.ago
 (1.year.ago...now).contains(firstCommitDate)
 firstCommitDate > now
+
+//: #ISO8801
+let ISO8801Format = "yyyy-MM-dd'T'HH:mm:ss.sssZZ"
+let ISO8801FormattedString = now.stringFromFormat(ISO8801Format)
+let ISO8801DateString = "1987-06-02T20:25:43.422Z"
+let ISO8801Date = ISO8801DateString.dateFromFormat(ISO8801Format)
